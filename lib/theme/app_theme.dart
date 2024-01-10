@@ -24,14 +24,14 @@ class AppTheme {
             primary: primary, shape: const StadiumBorder(), elevation: 0)),
     //Input
     inputDecorationTheme: const InputDecorationTheme(
-        floatingLabelStyle: TextStyle(color: Colors.white),
+        floatingLabelStyle: TextStyle(color: Colors.grey),
         enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: primary),
+            borderSide: BorderSide(color: Colors.black),
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 topRight: Radius.circular(10))),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: primary),
+            borderSide: BorderSide(color: Colors.black),
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10),
                 topRight: Radius.circular(10))),

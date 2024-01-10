@@ -1,28 +1,32 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:fl_components/models/CartProvider.dart';
 import 'package:fl_components/theme/app_theme.dart';
 import 'package:fl_components/router/app_routes.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Inicializa Firebase con las opciones adecuadas para la plataforma actual
   await Firebase.initializeApp(
-    options: FirebaseOptions(
+    options: const FirebaseOptions(
       apiKey: 'AIzaSyCcKeYgDqOi85l-1lNc9WkPhg47nIVBmjw',
       appId: '1:599784223139:android:2915fed261de4b72562a16',
       messagingSenderId: '599784223139',
       projectId: 'products-65828',
-      databaseURL: 'https://products-65828-default-rtdb.firebaseio.com/', // Aquí colocas tu URL de Firebase Realtime Database
+      storageBucket: 'gs://products-65828.appspot.com',
+      databaseURL: 'https://products-65828-default-rtdb.firebaseio.com/',
     ),
   );
-  CartProvider cartProvider = CartProvider();
-  await cartProvider.fetchPurchaseHistoryFromFirebase(); // Cargar historial de compras desde Firebase
 
+  // Crea una instancia del proveedor del carrito
+  CartProvider cartProvider = CartProvider();
+
+  // Carga el historial de compras desde Firebase
+  await cartProvider.fetchPurchaseHistoryFromFirebase();
+
+  // Inicia la aplicación Flutter
   runApp(
     ChangeNotifierProvider.value(
       value: cartProvider,

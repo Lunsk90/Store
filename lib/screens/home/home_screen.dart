@@ -8,7 +8,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatelessWidget {
   final String? email; // Cambio aquí: email es ahora un parámetro opcional
-  const HomeScreen({Key? key, this.email}) : super(key: key); // Modificación aquí
+  const HomeScreen({Key? key, this.email})
+      : super(key: key); // Modificación aquí
 
   Future<void> signOut(BuildContext context) async {
     try {
@@ -28,7 +29,8 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(email ?? ''), // Usar email ?? '' para manejar el caso donde email es null
+        title: Text(email ??
+            ''), // Usar email ?? '' para manejar el caso donde email es null
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: GestureDetector(
@@ -38,7 +40,8 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => EditProfileScreen(
                     avatarImage: const AssetImage('assets/defaul_avatar.png'),
-                    email: email ?? '', // Usar email ?? '' para manejar el caso donde email es null
+                    email: email ??
+                        '', // Usar email ?? '' para manejar el caso donde email es null
                   ),
                 ),
               );
@@ -59,18 +62,12 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           Tooltip(
-            message: 'Historial de Compras', // Mensaje que se mostrará al pasar el cursor
+            message:
+                'Historial de Compras', // Mensaje que se mostrará al pasar el cursor
             child: Stack(
               children: [
                 IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PurchaseHistoryDatabaseScreen(),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   icon: const Icon(Icons.shopping_cart),
                 ),
               ],
